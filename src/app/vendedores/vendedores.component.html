@@ -1,0 +1,33 @@
+<div class="card border-warning mb-3">
+    <div class="card-header">Vendedores</div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de Vendedores</h5>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Rut</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vendedor of vendedores | paginate: { itemsPerPage: 4, currentPage: p }">
+                    <td>{{ vendedor.id }}</td>
+                    <td>{{ vendedor.nombre }}</td>
+                    <td>{{ vendedor.apellido }}</td>
+                    <td>{{ vendedor.rut }}</td>
+                    <td>{{ vendedor.fecha_nac }}</td>
+                    <td>{{ vendedor.email }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    <pagination-controls class="text-center" (pageChange)="p = $event" previousLabel="" nextLabel="">
+    </pagination-controls>
+</div>
